@@ -79,3 +79,33 @@ print(letter[0:-1])
 print(letter[0:-1:2])
 
 # 字符串的编码问题，当我们的源代码里面包含中文的时候，就需要务必指定保存为UTF-8编码
+# 当 Python 解释器读取源代码时，为了让它按 UTF-8 编码读取，我们通
+# 常在文件开头写上这行：
+#  -*- coding: utf-8 -*-
+# 无论是爬虫还是数据分析的时候，我们经常看到有一个转换编码的代码：encode('utf-8')
+# 由于 Python 的字符串在内存中以 Unicode 表示，一个字符对应若干个字节。如果要在网络上传输，或者保存到磁盘上，
+# 就需要把 str 变为以字节为单位的 bytes。大家看到这行代码表示为了编码格式的转换即可。
+
+# 各种数据类型的转换， type(variable) check the type of data types
+# float(a) 将变量a转换成浮点数
+# int(b) 将变量b转换成整数
+# str(c)将变量c转换为字符串
+# 其中a,b,c为任意变量类型
+print('\n各个数值类型的转换')
+number = 100
+print(type(number))
+
+float_number = float(number)
+print(type(float_number))
+
+str_number = str(number)
+print(type(str_number))
+
+#将字符串转换为整型 int()或者浮点数 float()
+print('\nstr_number 转化为数字类型')
+int_str_number = int(str_number)
+float_str_number = float(str_number)
+print('int_str_number 的数据类型是：')
+print(type(int_str_number))
+print('float_str_number 的数据类型是:')
+print(type(float_str_number))
