@@ -86,7 +86,7 @@ print(f'修改后的成员名单:{names_python_pc}')
 pop()删除列表尾部的元素，或者 pop(index)感觉索引值删除，但是 pop 方法删除后的元素可以
 赋值给变量。这就是两者的最大区别。
 语法：
-del 列表名[index]
+del 列表名[index]  也可以用切片删除 del index[0:2] 0 1 会被删除 
 列表名.pop() or 列表名.pop(index) 
 '''
 
@@ -107,19 +107,67 @@ print(f'pop(index) 根据索引删除的元素值是{delete_name_index}')
 列表名.remove('值')
 '''
 
+print('原来的列表是:',names_python_pc)
+names_python_pc.remove('David')
+print(f'删除后的列表是{names_python_pc}')
 
+'''
+列表排序及其他
+很多时候，我们需要对列表中的元素进行排序，然后进行运算。列表排序分为永久性排序和临时性排序。
 
+永久性排序是真正修改列表元素的排列顺序，用到的方法是 sort(),默认为升序。
+如果是降序，添加参数 reverse=True。
+另外 sort()中有一些选项很有用，比如使用字符串的长度排序；
 
+临时性排序是不改变原来的排列顺序，用到的函数是 sorted()。它返回一个新建的已排序列表，原来的列表顺序不受影响。
+语法：
+永久排序：列表名.sort()
+临时性排序: sorted(列表名)
+除了列表排序，列表中还有很多其他重要的方法，比如
+方法 copy()复制列表
+函数 len()求列表长度、
+函数 reverse()反转列表等
+'''
+'''
+ copy 复制；
+ count 方法计数
+ index 方法返回索引位置；
+ reverse 方法实现元素颠倒；
+ sort 方法排序；
+ sorted 临时排序
+'''
+# 构建列表
+list_1 = ['p', 'f', 'b', 'd', 'e', 'f', 'g']
+# 复制列表
+list_2 = list_1.copy()
+print('复制列表:', list_2)
 
+# 统计列表中f出现的次数
+print('统计列表中f出现的次数:', list_1.count('f'))
 
+# 查看列表中b的所在位置
+print('b所在的位置', list_1.index('b'))
 
+# 永久颠倒顺序
+list_1.reverse()
+print('颠倒后的元素顺序：', list_1)
 
+# 默认升序
+list_1.sort()
+print('升序排列元素', list_1)
 
+# 默认降序
+list_1.sort(reverse=True)
+print('降序排列元素', list_1)
 
+# 打印列表长度
+print('列表list_1的列表长度是:', len(list_1))
 
-
-
-
+#sort 根据长度排序, 默认升序
+names_python_pc_2 = ['Baby', 'Andy Liu', 'We', 'TFboys']
+print('原来的顺序是：', names_python_pc_2)
+names_python_pc_2.sort(key=len)
+print('根据元素长度排序后的结果是：', names_python_pc_2)
 
 
 
