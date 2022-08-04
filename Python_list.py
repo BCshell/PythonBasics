@@ -38,7 +38,100 @@ three_str = names_python_pc[2]
 print(names_python_pc[2])
 print(f'列表中的第3个元素:{three_str}')
 
+'''
+访问列表中最后一个元素的方法有两个：第一个是通过索引号[-1]来获取。这个特殊的语法
+特别有用，尤其在项目中，不知道一个 excel 文件具体有多少列，但是我们记得最后一列是想要
+获取的信息，此时就可以使用该方法；第二个：明确知道列表有多少列，使用最后一列的索引即
+可。
+'''
 # 两种方法访问列表最后一个元素
+names_python_pc[-1]
+print(f'使用第一种方法，获得列表的最后一个元素{names_python_pc[-1]}')
+names_python_pc[2]
+print(f'使用第一种方法，获得列表的最后一个元素{names_python_pc[2]}')
+
+# 添加列表元素，列表是可以变的，一般在列表中添加元素有2中情况
+# 第一种，在指定位置插入一个元素， insert（index,x) 方法，
+# index 是准备插入到其前面的那个元素的索引; x 为需要插入的元素。
+names_python_pc.insert(0, 'Bob')
+print('插入新演员的名单后的列表:{}'.format(names_python_pc))
+
+# 第二种，在列表的末尾添加元素 append(x) x 为需要插入的元素，并且是插入到列表的最后
+names_python_pc.append('Lily')
+print('插入新演员的名单后的列表:{}'.format(names_python_pc))
+
+'''
+在项目开发中，第二种方法经常被用来构建一个新的列表。首先，创建一个空
+的列表，然后在程序运行的过程中使用 append()方法添加元素。
+'''
+# 构建新的列表
+a = []
+a.append('lol')
+a.append('Ice')
+a.append('fire')
+a.append('wind')
+print(f'使用append()方法构建列表:{a}')
+
+# 修改列表元素，修改列表元素与访问列表元素一样，根据索引即可修改元素的值。
+# 语法 列表名[index] = 'new value'
+
+names_python_pc[2] = 'Coco'
+print(f'修改后的成员名单:{names_python_pc}')
+
+# 删除列表元素
+'''
+在项目中，我们经常需要删除列表中的元素。python 可以根据索引值删除，也可以根据元
+素值删除。如果我们记得要删除的元素的位置，则可以根据索引值删除，用到的是语句 del()或
+者方法 pop。语句 del(index) 根据索引值删除元素，并且删除后不可以赋值给任何变量；方法
+pop()删除列表尾部的元素，或者 pop(index)感觉索引值删除，但是 pop 方法删除后的元素可以
+赋值给变量。这就是两者的最大区别。
+语法：
+del 列表名[index]
+列表名.pop() or 列表名.pop(index) 
+'''
+
+# 删除列表中的Bob
+del names_python_pc[0]
+print('del 语句删除列表中的bob后的列表是{}'.format(names_python_pc))
+# POP 方法删除列表Lily
+delete_name = names_python_pc.pop()
+print(f'pop() 方法删除的元素是{delete_name}')
+# 根据位置删除 Coco
+delete_name_index = names_python_pc.pop(1)
+print(f'pop(index) 根据索引删除的元素值是{delete_name_index}')
+
+'''
+如何我们不记得要删除的列表元素的位置，只是记得值，可以采用的方法是 remove()。
+如果列表中有多个类似的值，则 remove()方法一次只能删除一个。
+语法：
+列表名.remove('值')
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
