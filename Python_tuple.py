@@ -91,5 +91,102 @@ print('使用切片访问元组中前两个元素', rag[0:2])
 up3_tuple = tuple(['Python', 'Java', 'C++'])
 print(tup3_tuple)
 # 删除元组
-del tup3_tuple
+# del tup3_tuple
 print(tup3_tuple)
+
+# 元组拆包
+'''
+元组拆包是把元组的对象值分别赋值给不同的变量，也就是元组括号（）内的值给不同的变
+量。注意变量的数量必须和元组中对象的数量一样，否则出错。
+'''
+# 元组拆包
+tup9 = ('Python', 'Java', 'C++')
+print('原来的元组是:', tup9)
+language_1, language_2, language_3 = tup9
+print('元组拆包后的值分别是:')
+print('language_1 = ', language_1)
+print('language_2 = ', language_2)
+print('language_3 = ', language_3)
+# 如果变量值和元素值不一致时, 报错！
+# language_1, language_2, = tup9
+# 嵌套元组也可以拆包
+# 嵌套元组拆包
+tup10 = 1, 2, ('Python', 'Java')
+print(tup10)
+a, b, (me, xiaoming) = tup10
+print(f'我最喜欢的语言是：{me}, 小明最喜欢的语言是：{xiaoming}')
+
+'''
+如果我们只要元组的一个值，而不需要其他的元素值
+我们使用下划线（_）来表示不想要的变量。但是，如果元组中元素很多，
+则需要多个下划线，比如下面的例子中用到了 2 个下划线。在 Python 中，我们可以使用
+*变量名来表示，比如*rest。但是我们经常使用的是*_表示多余的变量。
+'''
+# 使用下划线（_）表示不想要的对象
+_, language_2, _ = tup9
+print('\n小明最喜欢的编程语言是: ', language_2)
+
+# 使用星号（*）接受任意多个对象值,比如*rest。
+language_1, *rest = tup9
+print('我最喜欢的编程语言是： ', language_1)
+print('我不喜欢的编程语言有：', *rest)
+
+# 但是我们经常使用的是*_表示多余的变量。
+# *_也可以用在变量中间,比如生成 9 个数字，输出最后一个
+number_1, number_2, *_, number_9 = range(10)
+print('我最喜欢的数字是：', number_9)
+
+'''
+在 Python 编程中，我们可以使用（*变量名）给函数传递多个值，而不需要单独输入每一个值。
+在 Python 中，divmod(a,b)为一个内建函数（直接可以使用的函数。函数为第六天内容）。
+它返回 a//b 和 a%b 的结果组成的元组。
+
+'''
+# 使用*变量名传递多个值给函数
+number_10 = (81, 9)
+print(divmod(*number_10))
+# 未使用
+print(divmod(81, 9))
+
+# 在各种笔试中，我们经常被问到如何交换两个变量的值。Python 可以轻易的使用拆包功能实现。
+
+# 交换两个变量的值
+language_4, language_5 = 'Python', 'Java'
+print(f'我最喜欢的语言是：{language_4}, 小明最喜欢的语言是：{language_5}')
+
+language_4, language_5 = language_5, language_4
+print('交换两个变量值以后：')
+print(f'我最喜欢的语言变成：{language_4}, 小明最喜欢的语言变成：{language_5}')
+
+# 元组方法
+tup1 = (1, 2, 3, 3, 6, 7, 5, 3)
+
+# 元组名.count(a) 计算某一个数值 a 在元组中出现的次数
+print('\n计算元组中 3 出现的次数',tup1.count(3))
+
+# len(tuple) 计算元组个数
+print('计算元组个数', len(tup1))
+
+# max(tuple) 返回元组中元素最大值
+print('查找元素的最大值', max(tup1))
+
+# min(tuple) 返回元组中元素最小值
+print('查找元素的最小值', min(tup1))
+
+# 元组名.index(a) 查找元组中第一个出现 a 的索引值
+print('查找 3 出现的索引值', tup1.index(3))
+
+# 元组和列表的差别
+'''
+元组与列表都是序列类型的容器对象，可以存放任何类型的数据。并且都支持切片、迭代等操作。
+元组与列表的定义方法不同，一个是括号（）；另一个是方括号[]。
+最重要的差别点是元组是不可变的，而列表是可变的
+只有列表才有 append()方法来添加更多的元素，而元组没有
+同样大小的数据，元组比列表占用的内存空间更少；并且操作速度上元组更快。
+如果需要一个常量集合，并且唯一需要做的是不断的遍历它的元素值，请选择元组而不是列表。
+元组和列表之间可以互相转化。列表转化为元组的方法是内置的 tuple()函数接受一个 list，
+并且返回一个有着相同元素的元组。元组转化为列表的方法是使用内置的 list()函数。
+'''
+print('元组的元素有 ', tup1)
+print('将元组变成列表', list(tup1))
+print(type(list(tup1)))
